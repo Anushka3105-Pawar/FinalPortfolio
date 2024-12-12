@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio with Animations</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+
+b {
+            margin: 0;
+            padding: 0;
+            background-image: url('"D:\Portfolio website\IMG_6012.jpeg"'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            height: 100vh; 
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .content-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-section h2 {
+            color: beige;
+            font-size: 3rem;
+        }
+
+        .content-section p {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .image-centered {
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .image-centered:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid" style="font-size: x-large;">
+            <a class="navbar-brand" href="#">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="#section1" style="color: rgb(249, 252, 250); ">Welcome</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section2">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section3">Projects</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- d1 -->
+     
+    <div class="row" style="height:80vh; ">
+        <div class="col-4 bg-black"></div>
+        <div class="col-4 bg-black" style="text-align: center;">
+
+            <div class="content-section bg-black mt-5" id="section1"
+                style="color: beige; font-size:80pt; text-align: center; font-family: 'Times New Roman', Times, serif;">
+                <!-- <img src="Frame 2.png" alt="" class="img-fluid" src="" alt=""> -->
+                Welcome to My Portfolio
+
+            </div>
+
+        </div>
+        <div class="col-4 bg-black"></div>
+    </div>
+
+    <!-- Content Section 1 -->
+
+
+    <!-- Content Section 2 -->
+    <div class="content-section bg-black" id="section2">
+        <h2>About Me</h2>
+        <img src="Pass card.png" alt="" class="image-centered">
+
+    </div>
+
+    <!-- Photography Section -->
+    <div class="content-section bg-black" id="section3">
+        <h2>Explore my projects and creations!</h2>
+        <div class="row">
+            <div class="col">
+                <div class="content-section bg-black" id="section4">
+
+                    <a href="layout1.html"><img src="S1.png" alt="Illustration" class="image-centered">
+                        <h2>Short film: Gondhan</h2>
+                    </a>
+                </div>
+            </div>
+            <div class="row"> </div>
+            <div class="col">
+                <a href="layout12.html"><img src="P1.png" alt="Photography" class="image-centered">
+                    <h2>Photography</h2>
+                </a>
+            </div>
+            <div class="col">
+                <a href="layout13.html"><img src="GRRRL1.png" alt="Glossary" class="image-centered">
+                    <h2>Glossary</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Illustration Section -->
+    <div class="content-section bg-black" id="section4">
+
+        <a href="Layout14.html"><img src="B1.png" alt="Illustration" class="image-centered">
+            <h2>Illustration</h2>
+        </a>
+    </div>
+
+    <!-- Vinyl Section -->
+    <div class="content-section bg-black" id="section5">
+
+        <div class="row">
+            <div class="col">
+                <a href="layout15.html"><img src="K1.png" alt="Vinyl 1" class="image-centered">
+                    <h2>Vinyl cover design</h2>
+                </a>
+            </div>
+            <div class="col">
+                <a href="Layout16.html"><img src="R1.png" alt="Vinyl 2" class="image-centered">
+                    <h2>Rebranding</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="row" style="height:3vh;">
+        <div class="col-4 bg-black"></div>
+        <div class="col-4 bg-black"></div>
+        <div class="col-4 bg-black"></div>
+    </div>
+
+    <script>
+        // Intersection Observer for fade-in effect
+        const sections = document.querySelectorAll('.content-section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
